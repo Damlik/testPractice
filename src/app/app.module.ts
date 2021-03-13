@@ -2,10 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { SquareViewComponent } from './components/square-view/square-view.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SquareViewComponent
   ],
   imports: [
     BrowserModule

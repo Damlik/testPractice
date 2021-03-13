@@ -1,0 +1,22 @@
+.square_wrap {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: repeat(2, 500px);
+  color: #fff;
+}
+
+.square_wrap div:nth-child(1) {
+
+}
+
+.square_wrap div:nth-child(2) {
+  background-color: #ffe5b4;
+}
+
+.square_wrap div:nth-child(3) {
+  background-color: #ff0000;
+}
+
+.square_wrap div:nth-child(4) {
+  background-color: #000000;
+}
