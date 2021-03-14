@@ -1,1 +1,3 @@
-<p>{{squareData}}</p>
+<div class="square" [ngStyle]="{'background-color': squareData.color, 'color': squareData.colorText}">
+    <span class="square__text">{{displayText}}</span>
+</div>

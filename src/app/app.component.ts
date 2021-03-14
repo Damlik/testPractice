@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SquareInfoModel } from "./models/squareInfo.model";
 
 @Component({
   selector: 'app-root',
@@ -7,39 +8,46 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'testPractice';
-  public secondSquareData: string;
-  public thirdSquareData: string;
-  public fourthSquareData: string;
+
+  public squaresInfo: Array<SquareInfoModel> = [
+    {
+      regExp: /^[а-яА-Яa-zA-Z\s]+$/,
+      color: '#ffe5b4',
+      colorText: '#000',
+      callback: this.countWords.bind(this)
+    },
+    {
+      regExp: /^[\d\s]+$/,
+      color: '#ff0000',
+      colorText: '#bbb',
+    },
+    {
+      regExp: /^\s*(([а-яА-Яa-zA-Z\s]+\d+)|(\d+\s*[а-яА-Яa-zA-Z]+))[а-яА-Яa-zA-Z\s\d]*$/,
+      color: '#000000',
+      colorText: '#fff',
+    }
+  ];
+
+  public inputValue: string;
+
   public wordsCount: Object = {};
 
-  constructor() {
-  }
-
-  defineSquare(event): void {
-    let data = event.target.value;
-
-    if ((/^[а-яА-Яa-zA-Z\s]+$/).test(data)) {
-      this.secondSquareData = data;
-      this.countWords(data);
-    } else
-    if ((/^[\d\s]+$/).test(data)) {
-      this.thirdSquareData = data;
-    } else
-    if ((/^[а-яА-Я\w\s]+$/).test(data)) {
-      this.fourthSquareData = data;
-    }
+  saveInputValue(event): void {
+    this.inputValue = event.target.value;
   }
 
   private countWords(data): void {
-    let dataInArr = data.split(/\s+/gi);
+    if (data) {
+      let dataInArr = data.trim().split(/\s+/gi);
 
-    for (let word of dataInArr) {
-      if (this.wordsCount[word]) {
-        this.wordsCount[word]++;
-      } else {
-        this.wordsCount[word] = 1;
+      for (let word of dataInArr) {
+        if (this.wordsCount[word]) {
+          this.wordsCount[word]++;
+        } else {
+          this.wordsCount[word] = 1;
+        }
       }
+      console.log(this.wordsCount);
     }
-    console.log(this.wordsCount);
   }
 }

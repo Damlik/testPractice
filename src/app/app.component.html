@@ -1,16 +1,13 @@
 <div class="square_wrap">
-  <div>
-    <input type="text" (change)="defineSquare($event)">
+  <div class="input-wrap">
+    <input class="input" type="text" (change)="saveInputValue($event)">
   </div>
-  <div>
-    <app-square-view [squareData]="secondSquareData"></app-square-view>
-  </div>
-  <div>
-    <app-square-view [squareData]="thirdSquareData"></app-square-view>
-  </div>
-  <div>
-    <app-square-view [squareData]="fourthSquareData"></app-square-view>
-  </div>
+
+  <app-square-view
+    *ngFor="let square of squaresInfo;"
+    [squareData]="square"
+    [inputValue]="inputValue"
+  ></app-square-view>
 </div>
 
 

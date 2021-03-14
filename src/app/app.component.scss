@@ -1,22 +1,22 @@
 .square_wrap {
   display: grid;
-  grid-template-columns: repeat(2, 50%);
-  grid-template-rows: repeat(2, 500px);
-  color: #fff;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+
+  height: 100vh;
+  width: 100vw;
 }
 
-.square_wrap div:nth-child(1) {
-
+.input-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.square_wrap div:nth-child(2) {
-  background-color: #ffe5b4;
-}
-
-.square_wrap div:nth-child(3) {
-  background-color: #ff0000;
-}
-
-.square_wrap div:nth-child(4) {
-  background-color: #000000;
+.input {
+  padding: 12px 14px;
+  font-size: 20px;
+  outline: none;
+  border: 1px solid #bebebe;
+  border-radius: 6px;
 }
